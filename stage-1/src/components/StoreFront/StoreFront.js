@@ -13,15 +13,20 @@ class StoreFront extends Component {
 
     componentDidMount() {
         axios.get("https://practiceapi.devmountain.com/products/")
-            .then((response) => {
+            .then((response => {
+                // console.log("RESPONSE", response);
                 this.setState({
-                    products: response
+                    products: response.data
                 })
-            })
-    }
+            }))
+            .catch(err=> console.log(`error in StoreFront.ComponentDidMount=${err}`))
+        }
 
     render() {
+        console.log(this.state.products);
         let productDisplay = this.state.products.map((element, index) => {
+            
+            
             return (
                 <div className="product-container" key={index}>
                     <h2>{element.title}</h2>

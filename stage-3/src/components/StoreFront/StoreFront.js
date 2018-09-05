@@ -10,8 +10,9 @@ class StoreFront extends Component {
     }
 
     render() {
-        console.log(this.props.products);
+        console.log(this.props.products, "SToreFront.js")
         let productDisplay = this.props.products.map((element, index) => {
+           
             return (
                 <div className="product-container" key={index}>
                     <h2>{element.title}</h2>
